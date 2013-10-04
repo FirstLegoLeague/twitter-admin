@@ -1,0 +1,5 @@
+AuthName "Twitter Admin"
+AuthType Basic
+AuthUserFile /path/to/.htpasswd
+AuthGroupFile /dev/null
+Require valid-user

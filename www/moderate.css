@@ -1,0 +1,40 @@
+.default_action {
+	font-weight: bold;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 1px solid gray;
+}
+
+td {
+	padding: 4px;
+}
+
+table th {
+	background-color: #555555;
+	color: white;
+}
+
+tr.odd td {
+	background-color: #EEEEEE;
+}
+
+tr.pending td {
+	color: blue;
+}
+
+tr.approved td {
+	color: black;
+}
+
+tr.disapproved td {
+	color: #FF8888;
+}
