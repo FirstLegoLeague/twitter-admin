@@ -1,7 +1,5 @@
 <?php
 
-sleep(10);
-
 require_once('MDB2.php');
 require_once('../../twitterdb.php');
 
