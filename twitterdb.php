@@ -104,6 +104,22 @@ class TwitterDB {
 	}
 
 	/**
+	 * Return the requested tweet, irrespective of their moderation
+	 * status.
+	 * Note: id is internal database ID, not status_id.
+	 */
+	public function getTweet($id) {
+		$query = "
+			SELECT *
+			FROM tweets AS t
+			WHERE id=$id
+		";
+		$tweet = $this->db->queryRow($query, NULL, MDB2_FETCHMODE_ASSOC);
+		$this->assert($tweet);
+		return $tweet;
+	}
+
+	/**
 	 * Get oldest unmoderated tweet.
 	 */
 	public function getPendingApproval() {
