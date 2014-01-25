@@ -35,6 +35,9 @@ if (isset($_REQUEST['action'])) {
 /* Prepare state for displaying next page */
 $stats = $db->getStats();
 $tweet = $db->getPendingApproval();
+$status = json_decode($tweet['data'], true);
+if ($status === NULL)
+	$status = array();
 
 header("Content-Type: text/html;charset=utf-8");
 
@@ -72,6 +75,16 @@ header("Content-Type: text/html;charset=utf-8");
 			<?php } ?>
 		</td>
 	</tr>
+	<?php if ($status['entities']['media']) { ?>
+	<tr>
+		<td>Images:</td>
+		<td>
+			<?php foreach ($status['entities']['media'] as $item) { ?>
+			<img src="<?= $item['media_url']?>:small" />
+			<?php } ?>
+		</td>
+	</tr>
+	<?php } ?>
 </table>
 <ul>
 	<li><a href="auto_approved.php">Auto-(dis-)approved users</a></li>
