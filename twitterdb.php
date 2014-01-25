@@ -33,13 +33,14 @@ class TwitterDB {
 	public function insert($tweet) {
 		/* Insert in database */
 		$query = sprintf("INSERT INTO tweets " .
-				"(status_id, created_at, screen_name, message, approved) " .
-				"VALUES (%s, %s, %s, %s, %s)",
+				"(status_id, created_at, screen_name, message, approved, data) " .
+				"VALUES (%s, %s, %s, %s, %s, %s)",
 				$this->db->quote($tweet['status_id']),
 				$this->db->quote(date('Y-m-d H:i:s', $tweet['created_at'])),
 				$this->db->quote($tweet['screen_name']),
 				$this->db->quote($tweet['text']),
-				$tweet['approved']);
+				$tweet['approved'],
+				$this->db->quote($tweet['data']));
 		$result = $this->db->exec($query);
 		$this->assert($result);
 	}

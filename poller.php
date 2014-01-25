@@ -55,6 +55,7 @@ class Poller extends OauthPhirehose {
 			'screen_name' => $data['user']['screen_name'],
 			'text' => $data['text'],
 			'created_at' => strtotime($data['created_at']),
+			'data' => $status,
 		);
 
 		return $tweet;

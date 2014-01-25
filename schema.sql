@@ -9,6 +9,7 @@ CREATE TABLE tweets (
 	created_at DATETIME NOT NULL,
 	screen_name TEXT NOT NULL,
 	message TEXT NOT NULL,
+	data TEXT NOT NULL,
 	approved TINYINT NOT NULL DEFAULT false,
 	shown DATETIME
 );
