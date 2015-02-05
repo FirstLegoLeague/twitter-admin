@@ -75,15 +75,27 @@ header("Content-Type: text/html;charset=utf-8");
 			<?php } ?>
 		</td>
 	</tr>
-	<?php if ($status['entities']['media']) { ?>
-	<tr>
-		<td>Images:</td>
-		<td>
-			<?php foreach ($status['entities']['media'] as $item) { ?>
-			<img src="<?= $item['media_url']?>:small" />
-			<?php } ?>
-		</td>
-	</tr>
+	<?php if ($status['entities']) { ?>
+		<?php if ($status['entities']['urls']) { ?>
+		<tr>
+			<td>URLs:</td>
+			<td>
+				<?php foreach ($status['entities']['urls'] as $item) { ?>
+				<a href="<?= $item['expanded_url']?>" target="twitter_img"><?= $item['display_url']?></a><br />
+				<?php } ?>
+			</td>
+		</tr>
+		<?php } ?>
+		<?php if ($status['entities']['media']) { ?>
+		<tr>
+			<td>Images:</td>
+			<td>
+				<?php foreach ($status['entities']['media'] as $item) { ?>
+				<img src="<?= $item['media_url']?>:small" />
+				<?php } ?>
+			</td>
+		</tr>
+		<?php } ?>
 	<?php } ?>
 </table>
 <ul>
